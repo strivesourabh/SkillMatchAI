@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillMatch AI ✨</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sky: {
+              DEFAULT: '#0ea5e9', // sky-500
+              '50': '#f0f9ff',
+              '100': '#e0f2fe',
+              '200': '#bae6fd',
+              '300': '#7dd3fc',
+              '400': '#38bdf8',
+              '500': '#0ea5e9',
+              '600': '#0284c7',
+              '700': '#0369a1',
+              '800': '#075985',
+              '900': '#0c4a6e',
+              '950': '#082f49'
+            },
+            slate: {
+              DEFAULT: '#64748b', // slate-500
+              '50': '#f8fafc',
+              '100': '#f1f5f9',
+              '200': '#e2e8f0',
+              '300': '#cbd5e1',
+              '400': '#94a3b8',
+              '500': '#64748b',
+              '600': '#475569',
+              '700': '#334155',
+              '800': '#1e293b',
+              '900': '#0f172a',
+              '950': '#020617'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.4.0"
+  }
+}
+</script>
+<style>
+  /* Custom scrollbar for webkit browsers for better aesthetics with dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e293b; /* slate-800 */
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #38bdf8; /* sky-500 */
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9; /* sky-600 */
+  }
+  /* For print-friendly resume: ensure background colors are printed */
+  .print-friendly-resume {
+    -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+    color-adjust: exact !important; /* Firefox, Edge */
+  }
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer, .no-print, form, .lg\\:grid-cols-2 > div:first-child /* Hide form part */ {
+      display: none !important;
+    }
+    main.container {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+     main > div.bg-slate-800 { /* Specificity to target the main content wrapper */
+        padding: 0 !important;
+        box-shadow: none !important;
+     }
+    .lg\\:grid-cols-2 {
+        grid-template-columns: 1fr !important; /* Make preview take full width */
+    }
+    .print-friendly-resume {
+      box-shadow: none !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      width: 100% !important;
+      min-height: 100vh !important; /* Ensure it tries to fill the page */
+      page-break-after: always;
+      border: none !important;
+    }
+    /* Tailwind's bg-white might be overridden by user agent styles in print, ensure it */
+    .bg-white { 
+        background-color: #ffffff !important;
+    }
+  }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-900">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+    
